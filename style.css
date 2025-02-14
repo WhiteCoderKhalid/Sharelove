@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffebee;
+    font-family: 'Great Vibes', cursive;
+  }
+  
+  .valentine-container {
+    text-align: center;
+  }
+  
+  .flowers {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 30px;
+  }
+  
+  .flower {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .petal {
+    position: absolute;
+    width: 50px;
+    height: 100px;
+    background-color: #ff69b4;
+    border-radius: 50px 50px 0 0;
+    transform-origin: bottom center;
+    opacity: 0;
+    animation: formFlower 2s forwards;
+  }
+  
+  @keyframes formFlower {
+    0% {
+      opacity: 0;
+      transform: rotate(0deg) translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(calc(var(--i) * 60deg)) translateY(0);
+    }
+  }
+  
+  .petal:nth-child(1) { --i: 0; }
+  .petal:nth-child(2) { --i: 1; }
+  .petal:nth-child(3) { --i: 2; }
+  .petal:nth-child(4) { --i: 3; }
+  .petal:nth-child(5) { --i: 4; }
+  .petal:nth-child(6) { --i: 5; }
+  
+  .heart {
+    width: 50px;
+    height: 50px;
+    background-color: #ff1493;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    clip-path: polygon(
+      50% 15%,
+      70% 0%,
+      85% 15%,
+      100% 35%,
+      100% 70%,
+      50% 100%,
+      0% 70%,
+      0% 35%,
+      15% 15%,
+      30% 0%
+    );
+    animation: formHeart 1s 2s forwards;
+  }
+  
+  @keyframes formHeart {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  .message {
+    margin-top: 30px;
+    font-size: 24px;
+    color: #d32f2f;
+    opacity: 0;
+    animation: showMessage 2s 3s forwards;
+  }
+  
+  .message p {
+    margin: 10px 0;
+  }
+  
+  @keyframes showMessage {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .flower {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .petal {
+      width: 40px;
+      height: 80px;
+    }
+  
+    .heart {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .message {
+      font-size: 18px;
+    }
+  } 
+  
+  
+  
